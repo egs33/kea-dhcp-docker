@@ -13,7 +13,14 @@ RUN make install
 
 FROM ubuntu:18.10
 
+ENV LD_LIBRARY_PATH /usr/local/lib
+
 COPY --from=builder /usr/local /usr/local
+
+RUN apt update && \
+    apt install libboost-system-dev libssl-dev liblog4cplus-dev -y && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
 
 EXPOSE 67:67/udp
 
