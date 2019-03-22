@@ -19,7 +19,7 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 COPY --from=builder /usr/local /usr/local
 
 RUN apt update && \
-    apt install libboost-system-dev libssl-dev liblog4cplus-dev mysql-client -y && \
+    apt install libboost-system-dev libssl-dev liblog4cplus-dev mysql-client libmysqlclient-dev -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
