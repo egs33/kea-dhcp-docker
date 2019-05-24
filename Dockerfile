@@ -1,4 +1,4 @@
-FROM ubuntu:18.10 as builder
+FROM ubuntu:18.04 as builder
 
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections && \
     echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
@@ -12,7 +12,7 @@ RUN ./configure --with-mysql
 RUN make -j4
 RUN make install
 
-FROM ubuntu:18.10
+FROM ubuntu:18.04
 
 ENV LD_LIBRARY_PATH /usr/local/lib
 
