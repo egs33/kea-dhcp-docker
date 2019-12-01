@@ -14,9 +14,9 @@ RUN apt install -y \
         libmysqlclient-dev \
         postgresql-server-dev-all \
         libpq-dev
-RUN wget 'https://gitlab.isc.org/isc-projects/kea/-/archive/Kea-1.6.0/kea-Kea-1.6.0.tar.gz'
-RUN tar xf kea-Kea-1.6.0.tar.gz
-WORKDIR ./kea-Kea-1.6.0
+RUN wget 'https://downloads.isc.org/isc/kea/1.6.1/kea-1.6.1.tar.gz'
+RUN tar xf kea-1.6.1.tar.gz
+WORKDIR ./kea-1.6.1
 RUN autoreconf --install
 RUN ./configure --with-mysql --with-pgsql
 RUN make -j4
