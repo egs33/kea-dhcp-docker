@@ -1,0 +1,14 @@
+version: 2
+updates:
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+    timezone: Asia/Tokyo
+  open-pull-requests-limit: 1000
+  reviewers:
+  - egs33
+  ignore:
+  - dependency-name: ubuntu
+    versions:
+    - "> 18.04"
